@@ -1,0 +1,47 @@
+.first-cards{
+    display: flex;
+    justify-content: space-around;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-top: 100px;
+}
+
+:where(.css-dev-only-do-not-override-fpg3f5).ant-card .ant-card-head{
+    text-align: center;
+}
+
+.first-cards p{
+    text-align: center;
+}
+
+
+/******* CARD *******/
+
+.custom-card-container {
+    /* Add padding or margin if needed */
+}
+  
+.custom-card {
+    width: 200px;
+    height: 120px;
+    border: 1px solid #333; /* Replace #333 with your desired dark color */
+    border-bottom-color: #444; /* Replace #444 with a slightly darker color */
+}
+  
+.custom-card .ant-card-head {
+    border-bottom: 1px solid #333; /* Keep the title underline with the original color */
+}
+  
+.second-cards{
+    width: 100%;
+    padding-top: 80px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+:where(.css-dev-only-do-not-override-fpg3f5).ant-card .ant-card-body {
+    /* padding: 24px; */
+    border-radius: 0 0 8px 8px;
+    padding-top: 8px;
+}

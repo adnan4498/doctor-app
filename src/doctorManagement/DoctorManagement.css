@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+
+.doctor-management-container{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.category-and-search{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 5px;
+}
+
+.category-and-search p{
+    font-family: 'Roboto', sans-serif;
+}
+
+.specialists-tabs{
+    margin-top: 30px;
+}
+
+.divs{
+    border: 1px solid black;
+    height: 40px;
+    /* width: 130px; */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+
+ul.ant-pagination.ant-table-pagination.ant-table-pagination-right.css-dev-only-do-not-override-fpg3f5{
+    display: none;
+}
