@@ -1,0 +1,22 @@
+form#basic{
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+:where(.css-dev-only-do-not-override-fpg3f5).ant-form-item .ant-form-item-label {
+    text-align: center;
+}
+
+/* .login-container{
+    background-color: red;
+}
+
+.itee{
+    background-color: yellow;
+} */

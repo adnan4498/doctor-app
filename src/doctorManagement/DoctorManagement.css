@@ -37,3 +37,8 @@
 ul.ant-pagination.ant-table-pagination.ant-table-pagination-right.css-dev-only-do-not-override-fpg3f5{
     display: none;
 }
+
+.remove-blue-color{
+    text-decoration: none;
+    color: inherit;
+}
