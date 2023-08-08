@@ -1,6 +1,6 @@
 // App.js
 
-import React from "react";
+import React, { useEffect } from "react";
 // import logo from './logo.svg';
 import "../../src/App.css";
 import { Menu } from "antd";
@@ -20,13 +20,32 @@ import Bookings from "../bookings/Bookings"
 import Dashboard from "../dashboard/Dashboard"
 import UserManagement from "../userManagement/UserManagement";
 import DoctorDetails from "../doctorDetails/DoctorDetails";
+import Locations from "../locations/Locations";
+import Reviews from "../reviews/Reviews";
+import Earnings from "../earnings/Earnings";
 
 
 const CustomLayout = (props) => {
 
+  // useEffect(() => {
+  //   // Attach the handleBrowserBack function to the onpopstate event
+  //   window.onpopstate = handleBrowserBack;
+
+  //   // Clean up the event handler when the component is unmounted
+  //   return () => {
+  //     window.onpopstate = null;
+  //   };
+  // }, []);
 
   const navigate = useNavigate();
 
+  // // Function to handle browser back button
+  // const handleBrowserBack = () => {
+  //   // Navigate back only if not on the Login page
+  //   if (window.location.pathname !== "/") {
+  //     navigate(-1);
+  //   }
+  // };
   return (
     // Use the "container" class to set full height for the container
     <>
@@ -39,7 +58,7 @@ const CustomLayout = (props) => {
           className="side-bar-items"
           items={[
             // { label: 'LOGO' },
-            { label: "Dashboard", key: "/dashboard", icon: <DashboardOutlined /> },
+            { label: "Dashboard", key: "/", icon: <DashboardOutlined /> },
             {
               label: "User Management",
               key: "/userManagement",
@@ -73,16 +92,16 @@ function Content() {
     <>
       <Routes>
         {/* <Route path="/" element={<Login/>}></Route> */}
-        <Route path="/customLayout/dashboard" element={<Dashboard/>}></Route>
+        <Route path="/" element={<Dashboard/>}></Route>
         <Route
           path="/userManagement"
           element={<UserManagement/>}
         ></Route>
         <Route path="/doctorManagement" element={<DoctorManagement/>} > </Route>
         <Route path="/bookings" element={<Bookings/>}></Route>
-        <Route path="/locations" element={<div>locations</div>}></Route>
-        <Route path="/reviews" element={<div>reviews</div>}></Route>
-        <Route path="/earnings" element={<div>earnings</div>}></Route>
+        <Route path="/locations" element={<Locations/>}></Route>
+        <Route path="/reviews" element={<Reviews/>}></Route>
+        <Route path="/earnings" element={<Earnings/>}></Route>
         <Route path="/doctorDetails" element={<DoctorDetails/>}></Route>
       </Routes>
     </>

@@ -3,19 +3,35 @@ import { Button, Form, Input } from "antd";
 import axios from "axios";
 import "../login/Login.css";
 import { LoginApi } from "../api/LoginApi";
+import { useNavigate } from "react-router";
 
-const Login = ({setValidation}) => {
+
+const Login = ({setIsLoggedIn}) => {
+  // const navigation = useNavigate
   const [error, setError] = useState(null);
   const [loginData, setLoginData] = useState()
-
+  const navigate = useNavigate();
+  
   const fetchLogin = async (values) => {
-    const url = "http://localhost:3000/admin/login"
+    const url = "http://localhost:3000/admin/login";
     try {
-      const data = await LoginApi({ url, values });
-      console.log(data, "DATA");
-      setValidation(true)
+      // Send a POST request to the login API with user credentials
+      const response = await axios.post(url, values);
+      const data = response.data;
+      console.log(response.status)
+      
+      // Set authentication token in local storage
+      localStorage.setItem("authToken", data.token);
+      setIsLoggedIn(true);
+      console.log("successfully logged in" , data)
+      
+      // Use navigate to replace the current location with '/'
+      if(response.status === 200){
+      navigate("/", { replace: true });
+      }
+      
     } catch (error) {
-      console.error(error.message); // Handle the error message appropriately
+      setError("Invalid credentials");
     }
   };
     

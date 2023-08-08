@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+
+.average-rating-number {
+    font-weight: bold;
+    font-size: 1.2em; /* Adjust font size as needed */
+    color: black; /* Adjust color as needed */
+    margin-left: 5px; /* Adjust margin as needed */
+}
+
+.sorting-buttons{
+    /* padding-left: 10px; */
+    display: flex;
+}
+
+.highest-button{
+    margin-right: 20px;
+}
+
+/* button.ant-btn.css-dev-only-do-not-override-fpg3f5.ant-btn-primary{
+    margin-top: 0px;
+    margin-left: 0px;
+    height: 32px;
+    font-family: 'Roboto', sans-serif;
+}
+
+button.ant-btn.css-dev-only-do-not-override-fpg3f5.ant-btn-default{
+    font-family: 'Roboto', sans-serif;
+} */
