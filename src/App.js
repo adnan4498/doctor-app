@@ -14,12 +14,14 @@ const App = () => {
   return (
     <>
       {/* {validation == false ? <Login  validation={validation} setValidation={setValidation} /> : <CustomLayout/>} */}
-
-      <CustomLayout/>
-
+    
       {/* <Routes>
         <Route path="/" element={<Login/>} />
+        <Route path="/customLayout" element={<CustomLayout/>}/>
       </Routes> */}
+
+      <CustomLayout/>
+      
     </>
   );
 };

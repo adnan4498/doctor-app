@@ -73,7 +73,7 @@ function Content() {
     <>
       <Routes>
         {/* <Route path="/" element={<Login/>}></Route> */}
-        <Route path="/dashboard" element={<Dashboard/>}></Route>
+        <Route path="/customLayout/dashboard" element={<Dashboard/>}></Route>
         <Route
           path="/userManagement"
           element={<UserManagement/>}

@@ -1,104 +1,147 @@
-import { Space, Table, Tag } from 'antd';
-import React from 'react'
+import React, { useState } from "react";
+import { Table, Drawer , DatePicker, Select } from "antd";
 
 const DoctorDetails = () => {
-    const columns = [
-        {
-            title: "#",
-            dataIndex: "",
-            key: "",
-            // render: (text) => <a>{text}</a>,
-          },
-        {
-          title: "Name",
-          dataIndex: "name",
-          key: "name",
-          render: (text) => <a>{text}</a>,
-        },
-        {
-          title: "Email",
-          dataIndex: "age",
-          key: "age",
-        },
-        {
-          title: "Picture",
-          dataIndex: "address",
-          key: "address",
-        },
-        {
-          title: "Spending",
-          dataIndex: "address",
-          key: "address",
-        },
-        {
-          title: "Status",
-          key: "tags",
-          dataIndex: "tags",
-          render: (_, { tags }) => (
-            <>
-              {tags.map((tag) => {
-                let color = tag.length > 5 ? "geekblue" : "green";
-                if (tag === "Block") {
-                  color = "volcano";
-                }
-                else if (tag == "Unblock"){
-                    color = "green"
-                }
-                return (
-                  <Tag color={color} key={tag}>
-                    {tag.toUpperCase()}
-                  </Tag>
-                );
-              })}
-            </>
-          ),
-        },
-        {
-          title: "Action",
-          key: "action",
-          render: (_, record) => (
-            <Space size="middle">
-              <a>Invite {record.name}</a>
-              <a>Delete</a>
-            </Space>
-          ),
-        },
-        {
-            title: "No. of Bookings",
-            dataIndex: "",
-            key: "",
-          },
-      ];
-    
-      const data = [
-        {
-          key: "1",
-          name: "John Brown",
-          age: 32,
-          address: "New York No. 1 Lake Park",
-          tags: ["Block"],
-        },
-        {
-          key: "2",
-          name: "Jim Green",
-          age: 42,
-          address: "London No. 1 Lake Park",
-          tags: ["Unblock"],
-        },
-        {
-          key: "3",
-          name: "Joe Black",
-          age: 32,
-          address: "Sydney No. 1 Lake Park",
-          tags: ["Block"],
-        },
-      ];
-    
-      return (
-        <div>
-          <Table columns={columns} dataSource={data} />
-        </div>
-      );
-}
 
-export default DoctorDetails
+  const { Option } = Select;
+
+  const columns = [
+    {
+      title: "#",
+      dataIndex: "",
+      key: "",
+    },
+    {
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
+    },
+    {
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
+    },
+    {
+      title: "Fees",
+      dataIndex: "fees",
+      key: "fees",
+    },
+    {
+      title: "Reviews",
+      dataIndex: "reviews",
+      key: "reviews",
+    },
+    {
+      title: "Availability",
+      key: "availability",
+      dataIndex: "availability",
+      render: (_, record) => (
+        <span
+          style={{ color: "blue", cursor: "pointer" }}
+          onClick={() => showAvailabilityDrawer(record)}
+        >
+          Click to view
+        </span>
+      ),
+    },
+    {
+      title: "Profile",
+      key: "profile",
+      // render: (_, record) => (
+      //   <span
+      //     style={{ color: "blue", cursor: "pointer" }}
+      //     onClick={() => showProfileDrawer(record)}
+      //   >
+      //     View Profile
+      //   </span>
+      // ),
+    },
+  ];
+
+  const data = [
+    {
+      key: "1",
+      name: "John Brown",
+      email: "john@example.com",
+      fees: "$100",
+      reviews: 5,
+      availability: "Available",
+      // availabilityDetails: "Monday to Friday, 9 AM - 6 PM",
+      tags: ["Block"],
+    },
+    {
+      key: "2",
+      name: "Jim Green",
+      email: "jim@example.com",
+      fees: "$80",
+      reviews: 4,
+      availability: "Unavailable",
+      // availabilityDetails: "Not available for appointments.",
+    },
+    {
+      key: "3",
+      name: "Joe Black",
+      email: "joe@example.com",
+      fees: "$120",
+      reviews: 3,
+      availability: "Available",
+      // availabilityDetails: "Tuesday and Thursday, 10 AM - 2 PM",
+      tags: ["Block"],
+    },
+  ];
+
+  const [availabilityDrawerVisible, setAvailabilityDrawerVisible] = useState(
+    false
+  );
+  const [profileDrawerVisible, setProfileDrawerVisible] = useState(false);
+  const [currentRecord, setCurrentRecord] = useState(null);
+
+  const showAvailabilityDrawer = (record) => {
+    setCurrentRecord(record);
+    setAvailabilityDrawerVisible(true);
+  };
+
+  const showProfileDrawer = (record) => {
+    setCurrentRecord(record);
+    setProfileDrawerVisible(true);
+  };
+
+  const closeDrawer = () => {
+    setAvailabilityDrawerVisible(false);
+    setProfileDrawerVisible(false);
+  };
+
+  return (
+    <div>
+      <Table columns={columns} dataSource={data} />
+      <Drawer
+        title="Availability Details"
+        placement="right"
+        closable={true}
+        onClose={closeDrawer}
+        visible={availabilityDrawerVisible}       
+      >
+        {currentRecord && (
+          <div>
+            <DatePicker style={{ marginBottom: 10 }} />
+            <Select
+              mode="multiple"
+              placeholder="Select weekdays"
+              style={{ width: "100%" }}
+            >
+              <Option value="monday">Monday</Option>
+              <Option value="tuesday">Tuesday</Option>
+              <Option value="wednesday">Wednesday</Option>
+              <Option value="thursday">Thursday</Option>
+              <Option value="friday">Friday</Option>
+              <Option value="saturday">Saturday</Option>
+              <Option value="sunday">Sunday</Option>
+            </Select>
+          </div>
+        )}
+      </Drawer>
+    </div>
+  );
+};
+
+export default DoctorDetails;
