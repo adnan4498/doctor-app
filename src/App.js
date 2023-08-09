@@ -1,33 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
 import CustomLayout from "./customLayout/CustomLayout";
 import Login from "./login/Login";
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [token, setToken] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if user is logged in
-    const authToken = localStorage.getItem("authToken");
-    if (authToken) {
-      setIsLoggedIn(true);
+    const data = localStorage.getItem("token");
+    if (data) {
+      setToken(data);
+    } else {
+      navigate("/login", { replace: true }); // Use replace here to replace the history entry
     }
-  }, []);
+  }, [navigate]);
+
+  console.log("toekn in app.js" , token)
 
   return (
-    <Routes>
-      <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
-      <Route
-        path="/*"
-        element={
-          isLoggedIn ? (
-            <CustomLayout />
-          ) : (
-            <Login setIsLoggedIn={setIsLoggedIn} />
-          )
-        }
-      />
-    </Routes>
+      <Routes>
+        <Route exact path="/login" element={<Login setToken={setToken} />} />
+        <Route  path="/*" element={<CustomLayout setToken={setToken} token={token} />} />
+      </Routes>
   );
 };
 

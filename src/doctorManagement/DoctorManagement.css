@@ -22,23 +22,26 @@
     margin-top: 30px;
 }
 
-.divs{
+ul.ant-pagination.ant-table-pagination.ant-table-pagination-right.css-dev-only-do-not-override-fpg3f5{
+    display: none;
+}
+
+.category-divs {
     border: 1px solid black;
     height: 40px;
-    /* width: 130px; */
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-}
-
-
-ul.ant-pagination.ant-table-pagination.ant-table-pagination-right.css-dev-only-do-not-override-fpg3f5{
-    display: none;
-}
-
-.remove-blue-color{
-    text-decoration: none;
-    color: inherit;
-}
+    background-color: #1b42d4;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    transition: background-color 0.3s, transform 0.3s; /* Add transition */
+  }
+  
+  .category-divs:hover {
+    background-color: #1c70d5; /* Change background color on hover */
+    transform: scale(1.02); /* Add a slight scale effect on hover */
+  }
+  

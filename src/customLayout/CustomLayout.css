@@ -1,0 +1,25 @@
+:where(.css-dev-only-do-not-override-fpg3f5).ant-layout-header {
+    height: 64px;
+    /* padding-inline: 50px; */
+    color: rgba(0, 0, 0, 0.88);
+    line-height: 64px;
+    background: #001529;
+    height: 100px;
+}
+
+:where(.css-dev-only-do-not-override-fpg3f5).ant-layout-header {
+    height: 95px !important ;
+    padding-inline: 0px !important;
+    color: rgba(0, 0, 0, 0.88);
+    line-height: 64px;
+    background: #001529;
+}
+
+:where(.css-fpg3f5).ant-layout-header {
+    /* height: 64px; */
+    /* padding-inline: 50px; */
+    color: rgba(0, 0, 0, 0.88);
+    line-height: 64px;
+    background: #001529;
+    width: 100% !important;
+}

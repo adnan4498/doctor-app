@@ -9,3 +9,8 @@ button.ant-btn.css-dev-only-do-not-override-fpg3f5.ant-btn-primary {
     color: #bfbfbf;
     margin-left: 10px;
 }
+
+button.ant-btn.css-dev-only-do-not-override-fpg3f5.ant-btn-primary.location-add-button{
+    height: 40px;
+    width: 100px;
+}

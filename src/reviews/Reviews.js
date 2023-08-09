@@ -16,7 +16,7 @@ const Reviews = () => {
   useEffect(() => {
     // Fetch reviews data from the API
     axios
-      .get("http://localhost:3000/admin/patients/rating-reviews")
+      .get("https://customdemowebsites.com/dr-admin/admin/patients/rating-reviews")
       .then((response) => {
         setReviews(response.data.results); // Assuming 'results' contains the review data
       })
@@ -25,7 +25,7 @@ const Reviews = () => {
       });
 
     axios
-      .get("http://localhost:3000/admin/doctors/rating-reviews")
+      .get("https://customdemowebsites.com/dr-admin/admin/doctors/rating-reviews")
       .then((response) => {
         console.log("response", response);
         setAverageReviews(response.data.results); // Assuming 'results' contains the review data

@@ -9,7 +9,7 @@ const Earnings = () => {
   useEffect(() => {
     // Fetch earnings data from the API
     axios
-      .get('http://localhost:3000/admin/doctors/earnings')
+      .get('https://customdemowebsites.com/dr-admin/admin/doctors/earnings')
       .then((response) => {
         setEarningsData(response.data.results);
       })

@@ -40,7 +40,7 @@ const Locations = () => {
 
   useEffect(() => {
     // Fetch locations data from the API
-    axios.get('http://localhost:3000/admin/locations')
+    axios.get('https://customdemowebsites.com/dr-admin/admin/locations')
       .then(response => {
         setLocations(response.data.results);
       })
@@ -88,7 +88,7 @@ const Locations = () => {
     <div className="locations-container">
       <Table columns={columns} dataSource={dataSource} pagination={false} />
       {!addingLocation && (
-        <Button onClick={() => setAddingLocation(true)} type="primary">
+        <Button className='location-add-button' onClick={() => setAddingLocation(true)} type="primary">
           Add 
         </Button>
       )}

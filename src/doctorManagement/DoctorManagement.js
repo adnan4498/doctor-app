@@ -8,10 +8,25 @@ import DoctorDetails from "../doctorDetails/DoctorDetails";
 const DoctorManagement = () => {
   const onSearch = (value) => console.log(value);
 
+  const doctors = [
+    "Psychiatrist",
+    "General Physician",
+    "Skin Doctor",
+    "Urologist",
+    "Cardiologist",
+    "Dermatologist",
+    "Neurologist",
+    "Orthopedic Surgeon",
+    "Gynecologist",
+    "Ophthalmologist",
+    "ENT Specialist",
+    "Pediatrician",
+  ];
+
   return (
     <div className="doctor-management-container">
       <div className="category-and-search">
-        <p>Select the Category</p>
+        <h2>Select A Category</h2>
 
         <div>
           <Search
@@ -27,64 +42,13 @@ const DoctorManagement = () => {
 
       <div className="specialists-tabs">
         <Row gutter={[16, 30]}>
-          <Col className="gutter-row" span={7}>
-          <Link to="/doctorDetails" className="remove-blue-color">
-            <div className="divs">Psychiatrist</div>
-          </Link>
-          </Col>
-          <Col className="gutter-row" span={7}>
-            <div className="divs">Psychiatrist</div>
-          </Col>
-          <Col className="gutter-row" span={7}>
-          <Link to="/doctorDetails" className="remove-blue-color">
-            <div className="divs">Psychiatrist</div>
-          </Link>
-          </Col>
-          <Col className="gutter-row" span={7}>
-          <Link to="/doctorDetails" className="remove-blue-color">
-            <div className="divs">Psychiatrist</div>
-          </Link>
-          </Col>
-          <Col className="gutter-row" span={7}>
-          <Link to="/doctorDetails" className="remove-blue-color">
-            <div className="divs">Psychiatrist</div>
-          </Link>
-          </Col>
-          <Col className="gutter-row" span={7}>
-          <Link to="/doctorDetails" className="remove-blue-color">
-            <div className="divs">Psychiatrist</div>
-          </Link>
-          </Col>
-          <Col className="gutter-row" span={7}>
-          <Link to="/doctorDetails" className="remove-blue-color">
-            <div className="divs">Psychiatrist</div>
-          </Link>
-          </Col>
-          <Col className="gutter-row" span={7}>
-          <Link to="/doctorDetails" className="remove-blue-color">
-            <div className="divs">Psychiatrist</div>
-          </Link>
-          </Col>
-          <Col className="gutter-row" span={7}>
-          <Link to="/doctorDetails" className="remove-blue-color">
-            <div className="divs">Psychiatrist</div>
-          </Link>
-          </Col>
-          <Col className="gutter-row" span={7}>
-          <Link to="/doctorDetails" className="remove-blue-color">
-            <div className="divs">Psychiatrist</div>
-          </Link>
-          </Col>
-          <Col className="gutter-row" span={7}>
-          <Link to="/doctorDetails" className="remove-blue-color">
-            <div className="divs">Psychiatrist</div>
-          </Link>
-          </Col>
-           <Col className="gutter-row" span={7}>
-          <Link to="/doctorDetails" className="remove-blue-color">
-            <div className="divs">Psychiatrist</div>
-          </Link>
-          </Col>
+          {doctors.map((doctor, index) => (
+            <Col key={index} className="gutter-row" span={7}>
+              <Link to="/doctorDetails" className="categories">
+                <div className="category-divs">{doctor}</div>
+              </Link>
+            </Col>
+          ))}
         </Row>
       </div>
     </div>

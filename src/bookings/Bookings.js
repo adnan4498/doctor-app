@@ -8,6 +8,9 @@ const Bookings = () => {
 
   const [activeTab, setActiveTab] = useState("upcoming"); // Default tab: upcoming
 
+  const tabStyle = {
+    fontFamily: "'Roboto', sans-serif", // Apply the desired font family here
+  };
 
   const columns = [
     {
@@ -112,12 +115,12 @@ const Bookings = () => {
       : data.filter((item) => item.tags.includes("Paid"));
 
   return (
-    <div>
-      <Tabs defaultActiveKey={activeTab} onChange={(key) => setActiveTab(key)}>
-        <TabPane tab="Upcoming" key="upcoming">
+    <div className="upcomming-pending-tabs">
+      <Tabs type="card" defaultActiveKey={activeTab} onChange={(key) => setActiveTab(key)}>
+        <TabPane tab={<span style={tabStyle}>Upcoming</span>} key="upcoming">
           <Table columns={columns} dataSource={filteredData} />
         </TabPane>
-        <TabPane tab="Completed" key="completed">
+        <TabPane tab={<span style={tabStyle}>Completed</span>} key="completed">
           <Table columns={columns} dataSource={filteredData} />
         </TabPane>
       </Tabs>

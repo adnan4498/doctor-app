@@ -5,16 +5,18 @@ import logo from "../images/logo-white.png";
 import { UserOutlined, LogoutOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
 
-const Header = () => {
-
+const Headers = ({setToken , token}) => {
+  console.log("token in header" , token)
   const navigate = useNavigate()
+  
 
   const handleLogout = () => {
-    // Clear the authentication token from local storage
-    localStorage.removeItem("authToken");
-    // Redirect to the login page
+    localStorage.removeItem("token");
+    setToken("")
+    // console.log("NAVIGAE",navigate())
     navigate("/login" , { replace: true });
   };
+
 
   return (
     <>
@@ -39,4 +41,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Headers;
