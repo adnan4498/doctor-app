@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Table, Drawer , DatePicker, Select } from "antd";
+import { Table, Drawer , DatePicker, Select, Button } from "antd";
+import "../doctorDetails/DoctorDetails.css"
 
 const DoctorDetails = () => {
 
@@ -8,8 +9,9 @@ const DoctorDetails = () => {
   const columns = [
     {
       title: "#",
-      dataIndex: "",
-      key: "",
+      dataIndex: "index",
+      key: "index",
+      render: (_, __, index) => index + 1,
     },
     {
       title: "Name",
@@ -36,12 +38,12 @@ const DoctorDetails = () => {
       key: "availability",
       dataIndex: "availability",
       render: (_, record) => (
-        <span
+        <Button
           style={{ color: "blue", cursor: "pointer" }}
           onClick={() => showAvailabilityDrawer(record)}
         >
           Click to view
-        </span>
+        </Button>
       ),
     },
     {

@@ -15,9 +15,9 @@ const Bookings = () => {
   const columns = [
     {
       title: "#",
-      dataIndex: "",
-      key: "",
-      // render: (text) => <a>{text}</a>,
+      dataIndex: "index",
+      key: "index",
+      render: (_, __, index) => index + 1,
     },
     {
       title: "Patient Name",

@@ -1,3 +1,11 @@
 .upcomming-pending-tabs .ant-tabs-nav-wrap{
     margin-left: 20px;
 }
+
+:where(.css-dev-only-do-not-override-fpg3f5).ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+    color: white !important;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active {
+    background: #1b42d4 !important;
+}

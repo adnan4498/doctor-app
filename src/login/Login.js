@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Button, Form, Input } from "antd";
 import axios from "axios";
 import { useNavigate } from "react-router";
-import "../login/Login.css"
+import "../login/Login.css";
 
-const Login = ({ setIsLoggedIn , setToken }) => {
+const Login = ({ setIsLoggedIn, setToken }) => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  
+
   const fetchLogin = async (values) => {
     const url = "http://localhost:3000/admin/login";
     try {
@@ -27,6 +27,8 @@ const Login = ({ setIsLoggedIn , setToken }) => {
 
   return (
     <div className="login-container">
+    <div className="image-container"></div>
+    <div className="form-container">
       <Form
         name="basic"
         labelCol={{
@@ -36,7 +38,7 @@ const Login = ({ setIsLoggedIn , setToken }) => {
           span: 16,
         }}
         style={{
-          maxWidth: 600,
+          maxWidth: 400,
         }}
         initialValues={{
           remember: true,
@@ -46,9 +48,10 @@ const Login = ({ setIsLoggedIn , setToken }) => {
         autoComplete="off"
       >
         <div className="itee">
+          <h2> Admin Panel </h2>
           <Form.Item
             className="user-name"
-            label="Email"
+            // label="Email"
             name="email"
             rules={[
               {
@@ -61,7 +64,7 @@ const Login = ({ setIsLoggedIn , setToken }) => {
           </Form.Item>
 
           <Form.Item
-            label="Password"
+            // label="Password"
             name="password"
             rules={[
               {
@@ -80,7 +83,7 @@ const Login = ({ setIsLoggedIn , setToken }) => {
             span: 16,
           }}
         >
-          <Button type="primary" htmlType="submit">
+          <Button className="login-submit-button" type="primary" htmlType="submit">
             Submit
           </Button>
         </Form.Item>
@@ -88,6 +91,7 @@ const Login = ({ setIsLoggedIn , setToken }) => {
         {error && <div className="error-message">{error}</div>}
       </Form>
     </div>
+  </div>
   );
 };
 

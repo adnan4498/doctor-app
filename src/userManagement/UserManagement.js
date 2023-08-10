@@ -6,11 +6,11 @@ import "./UserManagement.css"; // Import your custom CSS file if needed
 const UserManagement = () => {
   const columns = [
     {
-        title: "#",
-        dataIndex: "",
-        key: "",
-        // render: (text) => <a>{text}</a>,
-      },
+      title: "#",
+      dataIndex: "index",
+      key: "index",
+      render: (_, __, index) => index + 1,
+    },
     {
       title: "Name",
       dataIndex: "name",
